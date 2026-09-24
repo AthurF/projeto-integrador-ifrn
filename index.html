@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Casa do Vinho — Sinta, descubra, celebre." />
+  <title>Casa do Vinho</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <header class="topbar" id="inicio">
+    <div class="topbar__inner">
+      <button class="icon-button topbar__menu" id="menuButton" type="button" aria-label="Abrir menu"
+        aria-controls="sideMenu" aria-expanded="false">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M1.5 6h21M1.5 12h21M1.5 18h21" />
+        </svg>
+      </button>
+
+      <a class="brand brand--header" href="#inicio" aria-label="Casa do Vinho - início">
+        <img src="assets/images/logo-casa-do-vinho.png" alt="Casa do Vinho — Sinta, descubra, celebre" />
+      </a>
+
+      <button class="icon-button topbar__search" id="searchButton" type="button" aria-label="Pesquisar produtos"
+        aria-controls="searchPanel" aria-expanded="false">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="6.6" />
+          <path d="m16 16 4 4" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="search-panel" id="searchPanel" hidden>
+    <div class="search-panel__inner">
+      <label class="sr-only" for="searchInput">Pesquisar produtos</label>
+      <input id="searchInput" type="search" autocomplete="off" placeholder="Pesquisar produtos" />
+      <button class="search-panel__close" id="searchClose" type="button" aria-label="Fechar pesquisa">×</button>
+    </div>
+  </div>
+
+  <main>
+    <section class="products-section" id="produtos" aria-label="Produtos em destaque">
+      <div class="products-window" id="productsWindow">
+        <div class="products-grid" id="productsGrid"></div>
+        <div class="products-fade" id="productsFade" aria-hidden="true"></div>
+        <button class="see-more" id="seeMoreButton" type="button" aria-expanded="false">VER MAIS</button>
+      </div>
+      <p class="empty-search" id="emptySearch" hidden>Nenhum produto encontrado.</p>
+    </section>
+
+    <section class="category-section" id="categorias" aria-labelledby="categoryTitle">
+      <h2 id="categoryTitle">Navegue por categoria</h2>
+      <div class="category-row" id="categoryRow" role="list">
+        <button class="category-item" type="button" data-category="Tinto" role="listitem">
+          <span class="category-circle category-circle--tinto" aria-hidden="true"></span>
+          <span>Tinto</span>
+        </button>
+        <button class="category-item" type="button" data-category="Rosé" role="listitem">
+          <span class="category-circle category-circle--rose" aria-hidden="true"></span>
+          <span>Rosé</span>
+        </button>
+        <button class="category-item" type="button" data-category="Branco" role="listitem">
+          <span class="category-circle category-circle--branco" aria-hidden="true"></span>
+          <span>Branco</span>
+        </button>
+        <button class="category-item" type="button" data-category="Laranja" role="listitem">
+          <span class="category-circle category-circle--seco" aria-hidden="true"></span>
+          <span>Laranja</span>
+        </button>
+        <button class="category-item" type="button" data-category="Espumante" role="listitem">
+          <span class="category-circle category-circle--champagne" aria-hidden="true"></span>
+          <span>Espumante</span>
+        </button>
+        <button class="category-next" id="categoryNext" type="button" aria-label="Ver próximas categorias">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="m9 5 7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <section class="contact-strip" aria-label="Contato pelo WhatsApp">
+      <a id="generalWhatsapp" href="https://wa.me/5584999671972" target="_blank" rel="noopener noreferrer">
+        <svg aria-hidden="true" viewBox="0 0 32 32">
+          <path d="M16 4.2A11.5 11.5 0 0 0 6 21.4L4.5 27.6l6.4-1.5A11.5 11.5 0 1 0 16 4.2Z" />
+          <path
+            d="M12.1 10.2c-.3-.8-.7-.8-1-.8h-.8c-.3 0-.7.1-1 .5-.4.4-1.3 1.3-1.3 3.2s1.4 3.7 1.6 4c.2.3 2.7 4.4 6.7 5.9 3.3 1.3 4 .9 4.7.8.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.5l-2.7-1.3c-.4-.2-.7-.3-1 .3-.3.5-1.1 1.4-1.4 1.7-.3.3-.5.3-1 .1-.4-.2-1.8-.7-3.4-2.2-1.3-1.1-2.1-2.5-2.3-2.9-.2-.4 0-.7.2-.9.2-.2.4-.5.7-.7.2-.3.3-.5.4-.8.1-.3.1-.6 0-.8l-1.4-3Z" />
+        </svg>
+        <span>Dúvidas? Fale conosco!</span>
+        <svg class="contact-strip__arrow" aria-hidden="true" viewBox="0 0 24 24">
+          <path d="m9 5 7 7-7 7" />
+        </svg>
+      </a>
+    </section>
+
+    <section class="content-section" id="conteudos" aria-labelledby="contentTitle">
+      <h2 id="contentTitle">Saiba mais sobre o mundo dos vinhos!</h2>
+      <div class="story-grid">
+        <a class="story-card" href="#" aria-label="Conteúdo: Vinho e Água">
+          <span class="story-card__instagram" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <rect x="4" y="4" width="16" height="16" rx="4" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.8" r="1" />
+            </svg>
+          </span>
+          <span class="story-card__play" aria-hidden="true"><svg viewBox="0 0 24 24">
+              <path d="m9 7 9 5-9 5Z" />
+            </svg></span>
+          <span class="story-card__shade" aria-hidden="true"></span>
+          <span class="story-card__title">Vinho e Água</span>
+        </a>
+        <a class="story-card" href="#" aria-label="Conteúdo: Vinho Seco, Branco e mais">
+          <span class="story-card__instagram" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <rect x="4" y="4" width="16" height="16" rx="4" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.8" r="1" />
+            </svg>
+          </span>
+          <span class="story-card__play" aria-hidden="true"><svg viewBox="0 0 24 24">
+              <path d="m9 7 9 5-9 5Z" />
+            </svg></span>
+          <span class="story-card__shade" aria-hidden="true"></span>
+          <span class="story-card__title">Vinho Seco, Bran...</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contato">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <img class="footer__brand" src="assets/images/logo-casa-do-vinho.png" alt="Casa do Vinho" />
+        <div class="footer__contact">
+          <a href="https://www.instagram.com/casadovinholn" target="_blank" rel="noopener noreferrer">@casadovinholn</a>
+          <a href="https://wa.me/5584999671972" target="_blank" rel="noopener noreferrer">(84)99967-1972</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <img class="footer__logus" src="assets/images/logo-logus.png" alt="Tecnologia Lógus" />
+        <p>©2026 Lógus Comunicação e Participações S.A.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+
+  <aside class="side-menu" id="sideMenu" aria-label="Menu principal" aria-hidden="true">
+    <button class="side-menu__close" id="menuClose" type="button" aria-label="Fechar menu">×</button>
+    <img class="side-menu__logo" src="assets/images/logo-casa-do-vinho.png" alt="Casa do Vinho" />
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#categorias">Categorias</a>
+      <a href="#conteudos">Conteúdos</a>
+      <a href="#contato">Contato</a>
+      <button class="side-menu__cart" id="openCartFromMenu" type="button">Meu carrinho <span
+          id="menuCartCount">0</span></button>
+    </nav>
+  </aside>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Carrinho" aria-hidden="true">
+    <div class="cart-drawer__header">
+      <div>
+        <span class="cart-drawer__eyebrow">Seu pedido</span>
+        <h2>Meu carrinho</h2>
+      </div>
+      <button class="cart-drawer__close" id="cartClose" type="button" aria-label="Fechar carrinho">×</button>
+    </div>
+
+    <div class="cart-drawer__content">
+      <div id="cartItems" class="cart-items"></div>
+      <div id="cartEmpty" class="cart-empty">
+        <div class="cart-empty__icon">⌑</div>
+        <h3>Seu carrinho está vazio</h3>
+        <p>Escolha seus produtos favoritos para montar o pedido.</p>
+      </div>
+
+      <form id="checkoutForm" class="checkout" novalidate>
+        <div class="checkout__totals">
+          <span>Subtotal</span>
+          <strong id="cartSubtotal">R$ 0,00</strong>
+        </div>
+
+        <div class="checkout__section">
+          <h3>Seus dados</h3>
+          <label>Nome completo<input id="customerName" name="customerName" type="text" required
+              placeholder="Digite seu nome" /></label>
+          <label>Telefone<input id="customerPhone" name="customerPhone" type="tel" required
+              placeholder="(84) 99999-9999" /></label>
+        </div>
+
+        <div class="checkout__section">
+          <h3>Como deseja receber?</h3>
+          <div class="checkout__choices">
+            <label><input type="radio" name="deliveryMode" value="Entrega" checked /> Entrega</label>
+            <label><input type="radio" name="deliveryMode" value="Retirada" /> Retirada</label>
+          </div>
+          <div id="deliveryFields" class="delivery-fields">
+            <label>Endereço<input id="customerAddress" name="customerAddress" type="text"
+                placeholder="Rua, número, bairro e cidade" /></label>
+            <label>Ponto de referência<input id="customerReference" name="customerReference" type="text"
+                placeholder="Próximo a..." /></label>
+          </div>
+        </div>
+
+        <div class="checkout__section">
+          <h3>Forma de pagamento</h3>
+          <label>
+            Pagamento
+            <select id="paymentMethod" name="paymentMethod" required>
+              <option value="">Selecione</option>
+              <option>Pix</option>
+              <option>Dinheiro</option>
+              <option>Cartão</option>
+              <option>A combinar</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="checkout__section">
+          <h3>Observações</h3>
+          <label class="sr-only" for="orderNotes">Observações do pedido</label>
+          <textarea id="orderNotes" name="orderNotes" maxlength="300"
+            placeholder="Alguma observação para o pedido?"></textarea>
+        </div>
+
+        <button class="checkout__submit" id="sendWhatsapp" type="submit">Enviar pedido pelo WhatsApp</button>
+        <p class="checkout__hint">Seu pedido será organizado em uma mensagem e aberto no WhatsApp para confirmação.</p>
+      </form>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="js/app.js"></script>
+</body>
+
+</html>
