@@ -1,1 +1,1 @@
-
+O site está com recursos de segurança como o escape html, que evita ataques xss.

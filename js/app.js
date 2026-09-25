@@ -1,11 +1,13 @@
 // Nova branch criada com sucessos
 
 (() => {
-    'use strict';
+    'use strict'; // deixa mais seguro
 
     const WHATSAPP_NUMBER = '5584999671972';
     const STORAGE_KEY = 'casa-do-vinho-cart-v2';
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    // base de dados/array de objetos interna
     const products = [
         { id: 'torre-oria-tempranillo-750ml', name: 'VINHO TINTO TORRE ORIA TEMPRANILLO 750ML', price: 101.00, category: 'Tinto', image: '' },
         { id: 'cabernet-sauvignon-750ml', name: 'VINHO TINTO CABERNET SAUVIGNON 750ML', price: 90.00, category: 'Tinto', image: '' },
@@ -37,8 +39,11 @@
         { id: 'quinta-da-espiga-rose-750ml', name: 'VINHO ROSÉ QUINTA DA ESPIGA 750ML', price: 94.00, category: 'Rosé', image: '' },
         { id: 'castellamare-tannat-750ml', name: 'VINHO TINTO CASTELLAMARE TANNAT 750ML', price: 92.00, category: 'Tinto', image: '' },
         { id: 'arrivo-31-750ml', name: 'VINHO TINTO ARRIVO 31 750ML', price: 82.00, category: 'Tinto', image: '' },
-        { id: 'santa-colina-brut-750ml', name: 'ESPUMANTE SANTA COLINA BRUT 750ML', price: 75.00, category: 'Espumante', image: '' }
+        { id: 'santa-colina-brut-750ml', name: 'ESPUMANTE SANTA COLINA BRUT 750ML', price: 75.00, category: 'Espumante', image: '' },
+        { id: 'quinta-do-morgado-750ml', name: 'QUINTA DO MORGADO 750ML', price: 26.00, category: 'Tinto', image: '' } // vinho teste
     ];
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     const state = {
         cart: loadCart(),
@@ -88,12 +93,12 @@
         try {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(state.cart));
         } catch (_) {
-            // O carrinho continua funcionando na sessão mesmo se o armazenamento estiver bloqueado.
+            // O carrinho continua funcionando na sessão mesmo se o armazenamento estiver bloqueado por guia anônima ou extensão de navegador
         }
     }
 
     function filteredProducts() {
-        const normalizedQuery = state.query.trim().toLocaleLowerCase('pt-BR');
+        const normalizedQuery = state.query.trim().toLocaleLowerCase('pt-BR'); // normaliza a query para evitar problemas com acentos e maiúsculas/minúsculas
         return products.filter((product) => {
             const matchesQuery = !normalizedQuery || product.name.toLocaleLowerCase('pt-BR').includes(normalizedQuery);
             const matchesCategory = !state.category || product.category === state.category;
@@ -130,7 +135,7 @@
             card.className = 'product-card';
             card.dataset.productId = product.id;
             const imageHtml = product.image
-                ? `<img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy">`
+                ? `<img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy">` // escape html para evitar ataques xss, deixa mais seguro
                 : iconWinePlaceholder();
             card.innerHTML = `
         <h3 class="product-title">${escapeHtml(product.name)}</h3>
