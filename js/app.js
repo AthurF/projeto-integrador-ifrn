@@ -1,4 +1,4 @@
-// Nova branch criada com sucesso
+// Nova branch criada com sucessos
 
 (() => {
     'use strict';
